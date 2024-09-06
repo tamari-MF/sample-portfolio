@@ -1,0 +1,559 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+   font-size: 100%;
+}
+
+body{
+    padding-top: 80px;
+    color: #383e45;
+    font-size: 0.9rem;
+    font-family: "Noto Serif", serif;
+    letter-spacing: 0.1em;
+}
+
+a{
+    color:inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+
+.title-set{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    letter-spacing: 0.2em;
+    margin-bottom: 40px;
+    text-align:center;
+}
+
+.title-main{
+    margin-bottom: 8px;
+}
+
+.title-sub{
+    position: relative;
+    display: inline-block;
+    padding: 0 3rem; 
+}
+
+.title-sub:before,
+.title-sub:after{
+    position: absolute;
+    content: "";
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background-color: #333333;
+}
+
+.title-sub:before {
+    left: 0;
+}
+
+.title-sub:after {
+    right: 0;
+}
+
+.textalign-right{
+    text-align: right;
+}
+
+.textalign-center{
+    text-align: center;
+}
+
+.readmore{
+    letter-spacing: 0.2em;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+    color: #333;
+}
+
+.readmore::before{
+    content: '';
+    position: absolute;
+    bottom:-8px;
+    left: 40%;
+    /*下線の形状*/    
+    width: 80px;
+    height: 1px;
+    background:#333;
+    /*アニメーションの指定*/
+    transition: all .3s;
+}
+
+.readmore::after{
+    position: absolute;
+    content: "";
+    bottom:-5px;
+    right: -4%;
+    /*矢印の形状*/    
+    width: 15px;
+    height:1px;
+    background:#333;
+    transform: rotate(20deg);
+    /*アニメーションの指定*/
+    transition: all .3s;
+}
+
+/*hoverした際の移動*/
+.readmore:hover::before{
+    left:56%;
+}
+
+.readmore:hover::after{
+    right: -20%;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+
+#header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background: #ffffff;
+}
+
+#header .nav-set{
+    display: flex;
+    align-items: center;
+}
+
+#header .nav-set>.nav-title{
+    margin-right: auto;
+}
+
+#header .nav-icon{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+}
+
+#header .circle{
+    height: 56px;
+    width: 56px;
+    border-radius: 28px;
+    background-image: linear-gradient(135deg, #FF59DF,#0097B2);
+    margin-right: 16px;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+}
+
+#header .circle-icon{
+    transform: rotate(180deg);
+    height: 50px;
+    width: 50px;
+    inset: 0;
+    margin: auto;
+    z-index: 10;
+}
+
+#header h1{
+    font-size: 1.25rem;
+    letter-spacing: 0.2em;
+    font-weight: normal;
+}
+
+#header .nav-menu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1rem;
+    margin-left: auto;
+}
+
+#header .pc-nav{
+    padding-right: 40px;
+}
+
+#header .contact-small {
+    position: relative;
+    z-index: 0;
+    background: linear-gradient(135deg, #FF59DF,#0097B2);
+    width: 160px;
+    height: 32px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+/* マウスホバー時の背景色を重ねて表示（初期状態で透明） */
+#header .contact-small::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #FFFFFF;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* マウスホバー時に透明化を解除 */
+#header .contact-small:hover::before {
+    opacity: 1;
+}
+
+#header .contact-small:hover{
+    color: #333333;
+    background-color: #FFFFFF;
+    border: 1px solid ;
+    border-image: linear-gradient(to right, #FF59DF, #0097B2) 1;
+}
+
+/*-------------------------------------------
+main
+-------------------------------------------*/
+
+#topImage{
+    margin-bottom: 100px;
+    position: relative;
+}
+
+#topImage img{
+    width: 100%;
+    height: 560px;
+    max-height: 1920px;
+    object-fit: cover;
+}
+
+#topImage .top-coment{
+    position: absolute;
+    text-align: right;
+    font-size: 1.5rem;
+    line-height: 2.5;
+    letter-spacing: 0.2em;
+    bottom: 40px;
+    right: 40px;
+}
+
+#topImage mark{
+    background-color: #FFFFFF;
+    color: #333333;
+    padding: 4px;
+}
+
+#topAbout{
+    margin-bottom: 100px;
+}
+
+#topAbout .topAbout-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#topAbout .topAbout-left img{
+    width: 320px;
+    height: 245px;
+    border-radius: 60px 0px 60px 0px;
+    box-shadow: 4px 4px 0px 0px #CCC;
+    object-fit: cover;
+    margin-right: 100px;
+}
+
+#topAbout .topAbout-right p{
+    line-height: 2.5;
+}
+
+#topService{
+    margin-bottom: 100px;
+}
+
+#topService ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+#topService li{
+    width: calc(33%);
+}
+
+#topService h3{
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#topService h3::after{
+    position: absolute;
+    content: "";
+    width: 128px;
+    height: 1px;
+    background: #333;
+    bottom: -8px;
+    left: calc(50% - 64px)
+}
+
+#topService .topService-flex img{
+    width: 240px;
+    height: 160px;
+    border-radius: 60px 0px 60px 0px;
+    box-shadow: 4px 4px 0px 0px #CCC;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+#topService .topService-flex p{
+    width: calc(90%);
+    display: inline-block;
+    text-align: center;
+}
+
+#topWorks{
+    margin-bottom: 100px;
+}
+
+#CTA{
+    padding: 40px 0;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+
+#CTA .CTAcoment{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+#CTA .CTAcoment p{
+    margin-bottom: 40px;
+}
+
+#CTA .contact-large{
+    position: relative;
+    z-index: 0;
+    background: linear-gradient(135deg, #FF59DF,#0097B2);
+    width: 320px;
+    height: 60px;
+    font-size: 1.15rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+/* マウスホバー時の背景色を重ねて表示（初期状態で透明） */
+#CTA .contact-large::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #FFFFFF;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* マウスホバー時に透明化を解除 */
+#CTA .contact-large:hover::before {
+    opacity: 1;
+}
+
+#CTA .contact-large:hover{
+    color: #333333;
+    background-color: #FFFFFF;
+    border: 1px solid ;
+    border-image: linear-gradient(to right, #FF59DF, #0097B2) 1;
+}
+
+#footer{
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vision{
+    margin: 100px auto;
+    text-align: center;
+    line-height: 2.5;
+}
+
+#career{
+    margin-bottom: 100px;
+}
+
+#career dl{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#career dl dt {
+    font-size: 1rem;
+    width: 40%;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#career dl dd {
+    font-size: 1rem;
+    padding: 8px;
+    width: 60%;
+    display: flex;
+
+}
+
+.vertical-line{
+    width: 1px;
+    height: 40px;
+    background: #333333;
+}
+
+#skills{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+#skills .skills-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px 100px;
+}
+
+#skills .skills-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#skills p{
+    margin-top: 8px;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+}
+
+#skills .skills-box{
+    display: block;
+    position: relative;
+    width: 120px;
+    height: 130px;
+    background: #d9d9d9;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+#skills .skills-img img{
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 25%;
+    left: 23%;
+}
+
+#fllow {
+    margin-bottom: 100px;
+}
+
+#fllow li{
+    margin-bottom: 8px;
+}
+
+#fllow .fllowAcordion{
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#fllow .fllow-section{
+    display: flex;
+    justify-content: space-between;
+    background: #F5F5F5;
+    padding: 8px;
+    position: relative;
+}
+
+#fllow .fllow-step{
+    width: 160px;
+    background: linear-gradient(135deg, #FF59DF,#0097B2);
+    color: #fff;
+    font-size: 1rem;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fllow .fllow-title{
+    margin-left: 20px;
+    padding: 8px;
+    width: 100%;
+}
+
+#fllow .fllow-title:after{
+    display: inline-block;
+    font-family: "Font Awesome 6 Free";
+    content: "\f13a";
+    margin-left: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#fllow .fllow-title.open:after {
+	transform: rotate(-540deg);
+}
+
+#fllow .fllow-section:hover{
+    cursor: pointer;
+}
+
+#fllow .fllow-summary{
+    display: none;
+    background: #F5F5F5;
+    padding: 2rem;
+}
+
+#fllow .fllow-summary-inner{
+    display: flex;
+    justify-content: center;
+}
+
+#contact{
+    margin-top: 100px;
+}
